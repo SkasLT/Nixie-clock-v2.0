@@ -8,12 +8,12 @@ buttonDebounce::buttonDebounce(volatile uint8_t *button_DDRx, volatile uint8_t *
     _button_PORTxn = button_PORTxn;
 }
 
-void buttonDebounce::input(bool enableInternalPullup)
+void buttonDebounce::input(bool internalPullup)
 {
     // set button pin as input
     *_button_DDRx &= ~(1 << _button_PORTxn);
 
-    if(enableInternalPullup == true)
+    if(internalPullup == true)
         *_button_PORTx |= (1 << _button_PORTxn);     // enable internal pullup resistor if true
 }
 

@@ -1,5 +1,5 @@
-#ifndef buttonDebounce_h
-#define buttonDebounce_h
+#ifndef BUTTONDEBOUNCE_H
+#define BUTTONDEBOUNCE_H
 
 #include <Arduino.h>
 
@@ -10,7 +10,7 @@ class buttonDebounce
 {
   public:
     buttonDebounce(volatile uint8_t *button_DDRx, volatile uint8_t *button_PINx, volatile uint8_t *button_PORTx, uint8_t button_PORTxn);
-    void input(bool enableInternalPullup);
+    void input(bool internalPullup);
     bool debouncePulse(const unsigned long debounceDelay);
     bool debounceHold(const unsigned long debounceDelay);
 

@@ -1,5 +1,5 @@
-#ifndef defines_h
-#define defines_h
+#ifndef DEFINES_H
+#define DEFINES_H
 
 // seconds indicator pin defines
 #define SECONDS_INDICATOR_PIN_DDRx   DDRD

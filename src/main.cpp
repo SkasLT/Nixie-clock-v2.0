@@ -1,5 +1,5 @@
 #include <uRTCLib.h>
-#include "AVR_utils.h"
+#include <AVR_utils.h>
 #include "defines.h"
 #include "buttonDebounce.h"
 #include "debug.h"
@@ -12,9 +12,9 @@ buttonDebounce modeButton(&MODE_BUTTON_PIN_DDRx, &MODE_BUTTON_PIN_PINx, &MODE_BU
 buttonDebounce incrementButton(&INCREMENT_BUTTON_PIN_DDRx, &INCREMENT_BUTTON_PIN_PINx, &INCREMENT_BUTTON_PIN_PORTx, INCREMENT_BUTTON_PIN_PORTxn);
 buttonDebounce decrementButton(&DECREMENT_BUTTON_PIN_DDRx, &DECREMENT_BUTTON_PIN_PINx, &DECREMENT_BUTTON_PIN_PORTx, DECREMENT_BUTTON_PIN_PORTxn);
 
-uint8_t menuPage = 0;
-uint8_t lastMinute = 100;
-uint8_t minuteCounter = -1;
+uint8_t menuPage = 0;           // menupage
+uint8_t lastMinute = 100;       // lastminute
+uint8_t minuteCounter = -1;     // minutecounter
 
 uint8_t hour, minute, second;
 uint8_t hour1, hour2, minute1, minute2, second1, second2;
@@ -186,7 +186,7 @@ void firstMenuPage()
         {
             if(hour > 0)
                 hour--;
-            else if(hour == 0)
+            else
                 hour = 23;
 
             hour1 = hour / 10;
@@ -224,7 +224,7 @@ void secondMenuPage()
         {
             if(minute > 0)
                 minute--;
-            else if(minute == 0)
+            else
                 minute = 59;
 
             minute1 = minute / 10;
@@ -291,11 +291,11 @@ void loop()
 
     switch(menuPage)
     {
-    case 1:
-        firstMenuPage();
-    case 2:
-        secondMenuPage();
-    case 3:
-        lastMenuPage();
+        case 1:
+            firstMenuPage();
+        case 2:
+            secondMenuPage();
+        case 3:
+            lastMenuPage();
     }
 }

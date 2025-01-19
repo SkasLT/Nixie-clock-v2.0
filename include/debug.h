@@ -1,5 +1,5 @@
-#ifndef debug_h
-#define debug_h
+#ifndef DEBUG_H
+#define DEBUG_H
 
 // debugging
 #define DEBUG 0     // choose to debug or not; 1 is debugging 0 is not
